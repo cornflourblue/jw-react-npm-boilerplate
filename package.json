@@ -1,16 +1,16 @@
 {
     "name": "jw-react-npm-boilerplate",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "React Boilerplate Component for npm",
     "homepage": "http://jasonwatmore.com/post/2018/04/14/react-npm-how-to-publish-a-react-component-to-npm",
     "keywords": [
-        "React", 
+        "React",
         "Boilerplate",
         "npm"
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/cornflourblue/react-npm-boilerplate"
+        "url": "https://github.com/cornflourblue/jw-react-npm-boilerplate"
     },
     "main": "./lib/BoilerplateComponent.js",
     "license": "MIT",
