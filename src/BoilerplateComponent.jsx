@@ -2,33 +2,41 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const propTypes = {
-    text: PropTypes.string,
-    callbackFunction: PropTypes.func
+    label: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
+    styles: PropTypes.object
 }
 
 const defaultProps = {
-    text: "Some Default Text"
+    styles: {
+        label: {
+            fontFamily: 'Comic Sans MS',
+            color: 'green'
+        },
+        input: {
+            background: '#ddd',
+            border: '1px solid red'
+        }
+    }
 }
 
 class BoilerplateComponent extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
-        this.handleClick = this.handleClick.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
-    handleClick(e) {
-        if (this.props.callbackFunction) {
-            this.props.callbackFunction();
-        } else {
-            alert('no callback function was passed in the component props');
-        }
+    handleChange(e) {
+        this.props.onChange(e.target.value);
     }
     
     render() {
+        const styles = this.props.styles || {};
+
         return (
             <div>
-                <a onClick={this.handleClick}>{this.props.text}</a>
+                <label style={styles.label}>{this.props.label}</label>
+                <input type="text" style={styles.input} onChange={this.handleChange} />
             </div>
         );
     }
@@ -36,4 +44,5 @@ class BoilerplateComponent extends React.Component {
 
 BoilerplateComponent.propTypes = propTypes;
 BoilerplateComponent.defaultProps = defaultProps;
+
 export default BoilerplateComponent;
